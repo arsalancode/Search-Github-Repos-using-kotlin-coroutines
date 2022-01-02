@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.repos.home.uimodels.RepoUiModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_2sdp"
+            android:elevation="1dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profilePic"
+                    imageUrl="@{viewModel.ownerAvatarUrl}"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/circleImageView"
+                    tools:srcCompat="@drawable/ic_github_logo" />
+
+                <TextView
+                    android:id="@+id/tOwnerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{viewModel.ownerName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toRightOf="@id/profilePic"
+                    app:layout_constraintTop_toTopOf="@id/profilePic"
+                    tools:text="Testing Text" />
+
+                <TextView
+                    android:id="@+id/tRepoName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{viewModel.repoName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintLeft_toRightOf="@id/profilePic"
+                    app:layout_constraintTop_toBottomOf="@id/tOwnerName"
+                    tools:text="Testing Text" />
+
+
+                <TextView
+                    android:id="@+id/tRepoTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:autoLink="web"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{viewModel.repoTitle}"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintLeft_toRightOf="@id/profilePic"
+                    app:layout_constraintTop_toBottomOf="@id/tRepoName"
+                    tools:text="Testing Text" />
+
+                <TextView
+                    android:id="@+id/tRepoUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{viewModel.repoUrl}"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintLeft_toLeftOf="@id/profilePic"
+                    app:layout_constraintTop_toBottomOf="@id/profilePic"
+                    tools:text="https://github.com" />
+
+                <TextView
+                    android:id="@+id/tRepoDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="@{viewModel.repoDesc}"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintLeft_toLeftOf="@id/profilePic"
+                    app:layout_constraintTop_toBottomOf="@id/tRepoUrl"
+                    tools:text="@string/dummy_desc_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

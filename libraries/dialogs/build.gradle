@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Vers.compile_sdk_version
+    buildToolsVersion Vers.build_tools_version
+
+    defaultConfig {
+        minSdkVersion Vers.min_sdk_version
+        targetSdkVersion Vers.compile_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation Deps.kotlin_jdk
+    implementation Deps.app_compat
+    implementation Deps.core_ktx
+    implementation Deps.live_event
+    implementation Deps.lifecycle_viewmodel
+    implementation Deps.lifecycle_livedata
+    implementation Deps.lifecycle_runtime
+    annotationProcessor Deps.lifecycle_compiler
+    implementation Deps.lifecycle_reactivestreams
+    implementation Deps.lifecycle_common
+    implementation Deps.constraint_layout
+    implementation Deps.lottie
+    implementation Deps.card_view
+    implementation Deps.ssp
+    implementation Deps.sdp
+    implementation Deps.view_pager
+
+    testImplementation Deps.junit
+    androidTestImplementation Deps.androidx_junit
+    androidTestImplementation Deps.espresso
+
+    implementation project(':libraries:core')
+    implementation project(':libraries:utils')
+//    implementation project(':libraries:colors')
+    implementation project(':libraries:resources')
+//    implementation project(':libraries:lottie')
+//    implementation project(':libraries:youtubeextractor')
+//    implementation project(':libraries:fonts')
+}

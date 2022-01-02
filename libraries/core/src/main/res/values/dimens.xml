@@ -1,0 +1,16 @@
+<resources>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="radius">@dimen/_40sdp</dimen>
+
+    <dimen name="small_size">16dp</dimen>
+    <dimen name="small_x_size">8dp</dimen>
+    <dimen name="small_xx_size">4dp</dimen>
+    <dimen name="small_xxx_size">2dp</dimen>
+    <dimen name="medium_size">24dp</dimen>
+    <dimen name="large_size">32dp</dimen>
+    <dimen name="large_x_size">40dp</dimen>
+    <dimen name="large_xx_size">40dp</dimen>
+    <dimen name="large_xxx_size">48dp</dimen>
+
+</resources>

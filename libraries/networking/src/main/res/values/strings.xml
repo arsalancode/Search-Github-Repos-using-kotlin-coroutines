@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_unauthorization_title">Ops!</string>
+    <string name="dialog_unauthorization_txt">your session has expired</string>
+    <string name="networking_internet_unavailable_title">No Internet connection</string>
+    <string name="networking_internet_unavailable_description">Your device is currently offline. Go online to\n sync content.</string>
+    <string name="networking_internet_unavailable_button">Retry</string>
+    <string name="poor_connection_title">Internet connection</string>
+</resources>

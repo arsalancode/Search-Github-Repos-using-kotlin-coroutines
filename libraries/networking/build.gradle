@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+def PROPERTIES_FILE = "environments.properties"
+
+android {
+    compileSdkVersion Vers.compile_sdk_version
+    buildToolsVersion Vers.build_tools_version
+
+    defaultConfig {
+        minSdkVersion Vers.min_sdk_version
+        targetSdkVersion Vers.compile_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file(PROPERTIES_FILE).newDataInputStream())
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "GITHUB_AUTH_TOKEN", properties.getProperty('GithubAuthToken')
+            buildConfigField "String", "GITHUB_LIVE_HOST", properties.getProperty('GithubLiveHost')
+        }
+
+        debug {
+            buildConfigField "String", "GITHUB_AUTH_TOKEN", properties.getProperty('GithubAuthToken')
+            buildConfigField "String", "GITHUB_LIVE_HOST", properties.getProperty('GithubLiveHost')
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Deps.core_ktx
+    implementation Deps.fragment_ktx
+
+    implementation Deps.lifecycle_viewmodel
+    implementation Deps.live_event
+    implementation Deps.retrofit
+    implementation Deps.retrofit_gson_convertor
+    implementation Deps.retrofit_coroutines
+    implementation Deps.retrofit_interceptor
+    implementation Deps.kotlin_coroutines
+    implementation Deps.constraint_layout
+    implementation Deps.android_material
+    implementation Deps.ssp
+    implementation Deps.sdp
+    implementation Deps.okhttp_urlconnection
+    implementation Deps.kotlin_jdk
+    implementation Deps.core_ktx
+    implementation Deps.app_compat
+
+    implementation Deps.dagger_hilt
+    kapt Deps.dagger_hilt_compiler
+
+    testImplementation Deps.junit
+    androidTestImplementation Deps.androidx_junit
+    androidTestImplementation Deps.espresso
+
+//    implementation project(':libraries:user')
+//    implementation project(':libraries:domain')
+    implementation project(':libraries:core')
+    implementation project(':libraries:utils')
+//    implementation project(':libraries:navigation')
+//    implementation project(':libraries:ampeddialog')
+}

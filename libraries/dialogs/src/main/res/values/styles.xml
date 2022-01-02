@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DialogNoAnimation">
+        <item name="android:windowEnterAnimation">@anim/enter</item>
+        <item name="android:windowExitAnimation">@anim/exit</item>
+    </style>
+
+
+    <style name="tuner_intro_dialog_bullet_style">
+        <item name="android:layout_marginEnd">@dimen/_3sdp</item>
+        <item name="android:layout_marginStart">@dimen/_3sdp</item>
+        <item name="android:layout_width">@dimen/_6sdp</item>
+        <item name="android:layout_height">@dimen/_6sdp</item>
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">@dimen/_3sdp</item>
+        <item name="cardBackgroundColor">@color/gray_light</item>
+    </style>
+
+
+
+    <style name="title_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_marginTop">@dimen/_8sdp</item>
+    </style>
+
+    <style name="subtitle_text_style" parent="title_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:layout_marginTop">@dimen/_12sdp</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mic_access_dialog_title">Mic access</string>
+    <string name="mic_access_dialog_text">We need access to your mic to hear your guitar. It will only be used while the app is running. Tap OK in the next pop-up to allow this.</string>
+    <string name="mic_access_button">Got it!</string>
+    <string name="amped_go_to_settings">Go to settings</string>
+    <string name="amped_dialog_default_positive_btn">Ok</string>
+    <string name="premium_content_dialog_title">Premium Content</string>
+    <string name="premium_content_dialog_text"><![CDATA[Try premium to enjoy unlimited access to all songs & lessons. Play anywhere, anytime.]]></string>
+    <string name="amped_dialog_later">Later</string>
+    <string name="amped_dialog_start_free_trial">Start free trial</string>
+
+    <string name="amped_dialog_rating_title">Do you like this app?\n</string>
+    <string name="amped_dialog__rating_yes">Yes!</string>
+    <string name="amped_dialog_rating_cancel">No, tell us why?</string>
+    <string name="tuner_dialog_automatic">Automatic</string>
+    <string name="tuner_dialog_auto">Auto</string>
+    <string name="tuner_dialog_auto_text">The app will automatically recognise which string you play and give you tuning feedback for that string.</string>
+    <string name="tuner_dialog_manual">Manual</string>
+    <string name="tuner_dialog_manual_text">Tap on the screen to select which string to tune. The app will now give you tuning feedback for that string.</string>
+
+    <string name="amped_dialog_skill_title">You learnt a new skill!\n</string>
+    <string name="amped_dialog_skill_cancel">Got it!</string>
+
+    <string name="tuner_dialog_improve_tuner_detection">Improve tuner detection</string>
+    <string name="tuner_dialog_improve_tuner_detection_text">Point your device mic or headphones mic towards the guitar for an improved detection.</string>
+    <string name="tuner_dialog_tune_twice">Tune twice</string>
+    <string name="tuner_dialog_tune_twice_text">Tuning one string may affect the other strings. So after you\'ve tuned all strings, go over each string again to see that they are still in tune.</string>
+    <string name="tuner_dialog_tune_often">Tune often</string>
+    <string name="tuner_dialog_tune_often_text">Guitars often goes out of tune. One common reason is change in temperature and humidity. So tune the guitar before each session, and sometime also during your session.</string>
+
+    <string name="tuner_dialog_next">Next</string>
+    <string name="next">Next</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+
+</resources>

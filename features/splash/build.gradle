@@ -1,0 +1,118 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion Vers.compile_sdk_version
+    buildToolsVersion Vers.build_tools_version
+
+    defaultConfig {
+        minSdkVersion Vers.min_sdk_version
+        targetSdkVersion Vers.compile_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Deps.kotlin_jdk
+    implementation Deps.app_compat
+    implementation Deps.core_ktx
+    implementation Deps.live_event
+    implementation Deps.lifecycle_viewmodel
+    implementation Deps.lifecycle_livedata
+    implementation Deps.lifecycle_runtime
+    implementation Deps.androidx_legacy
+    annotationProcessor Deps.lifecycle_compiler
+    implementation Deps.lifecycle_reactivestreams
+    implementation Deps.lifecycle_common
+    implementation Deps.constraint_layout
+    implementation Deps.lottie
+    implementation Deps.recycler_view
+    implementation Deps.fragment_ktx
+    implementation Deps.card_view
+    implementation Deps.sdp
+    implementation Deps.ssp
+
+    implementation Deps.retrofit
+    implementation Deps.retrofit_gson_convertor
+
+    implementation Deps.okhttp
+    implementation Deps.logginInterceptor
+
+    implementation Deps.dagger_hilt
+    kapt Deps.dagger_hilt_compiler
+
+
+    /// Testing dependencies Start //
+
+//    testImplementation Deps.lifecycle_testing
+//    testImplementation Deps.junit
+//    androidTestImplementation Deps.androidx_junit
+//    androidTestImplementation Deps.espresso
+
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+    implementation "com.jakewharton.espresso:okhttp3-idling-resource:1.0.0"
+
+    implementation 'junit:junit:4.13.2'
+    implementation 'android.arch.core:core-testing:1.1.1'
+    implementation 'androidx.test.ext:junit:1.1.3'
+    implementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+    // JVM-based unit tests (that don't need a real device or emulator)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0-RC"
+
+    // Instrumentation unit tests (that will require a real device or emulator)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0-RC"
+
+    //MockWebServer
+    implementation "com.squareup.okhttp3:mockwebserver:4.9.3"
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
+
+    // Coroutines, and the much-recommended library to add lifecycle-awareness to coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+
+//    implementation 'com.google.dagger:hilt-android-testing:2.38.1'
+//    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.38.1'
+
+    ///////// Testing Dependencies End //////
+
+    implementation project(':libraries:core')
+    implementation project(':libraries:utils')
+    implementation project(':libraries:resources')
+    implementation project(':libraries:navigation')
+    implementation project(':libraries:base')
+    implementation project(':libraries:networking')
+}

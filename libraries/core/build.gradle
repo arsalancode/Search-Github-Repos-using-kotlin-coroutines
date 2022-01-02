@@ -1,0 +1,94 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion Vers.compile_sdk_version
+    buildToolsVersion Vers.build_tools_version
+
+    defaultConfig {
+        minSdkVersion Vers.min_sdk_version
+        targetSdkVersion Vers.compile_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Deps.kotlin_jdk
+    implementation Deps.app_compat
+    implementation Deps.core_ktx
+    implementation Deps.recycler_view
+    implementation Deps.lifecycle_viewmodel
+    implementation Deps.android_material
+
+    //Dependency Injection
+    implementation Deps.koin_core
+    implementation Deps.koin_android
+    implementation Deps.koin_viewmodel
+    implementation Deps.room_runtime
+    implementation Deps.room_ktx
+
+    //RxJava
+    implementation Deps.rx_java
+    implementation Deps.rx_java_android
+    implementation Deps.rx_java_android
+
+    //Network
+    implementation Deps.okhttp
+    implementation Deps.logginInterceptor
+    implementation Deps.retrofit
+    implementation Deps.retrofit_gson_convertor
+    implementation Deps.retrofit_rxjava_adapter
+    implementation Deps.file_downloader
+
+    implementation Deps.hyperlog
+    implementation Deps.glide
+    annotationProcessor Deps.glide_compiler
+
+    implementation Deps.sdp
+    implementation Deps.quick_permission
+    implementation Deps.slider
+    implementation Deps.device_name
+    implementation Deps.live_event
+    implementation Deps.view_pager
+
+    implementation Deps.lottie
+
+    implementation Deps.dagger_hilt
+    kapt Deps.dagger_hilt_compiler
+    implementation 'com.google.dagger:hilt-android-testing:2.38.1'
+
+    testImplementation Deps.junit
+    androidTestImplementation Deps.androidx_junit
+    androidTestImplementation Deps.espresso
+
+    implementation project(':libraries:resources')
+    implementation project(':libraries:utils')
+}
